@@ -1,0 +1,19 @@
+# Problem
+# Same as Q1 but using recursion. 
+
+def binary_search_recursive(arr, left, right, target):
+    if left > right:
+        return -1
+
+    mid = (left + right) // 2
+
+    if arr[mid] == target:
+        return mid
+    elif target < arr[mid]:
+        return binary_search_recursive(arr, left, mid - 1, target)
+    else:
+        return binary_search_recursive(arr, mid + 1, right, target)
+
+
+arr = [1, 3, 5, 7, 9]
+print(binary_search_recursive(arr, 0, len(arr)-1, 7))
