@@ -1,0 +1,31 @@
+# Count Number of Comparisons 
+
+count = 0
+
+def quick_sort_count(arr):
+    global count
+    
+    if len(arr) <= 1:
+        return arr
+    
+    pivot = arr[0]
+    
+    left = []
+    right = []
+    
+    for i in arr[1:]:
+        count += 1
+        
+        if i <= pivot:
+            left.append(i)
+        else:
+            right.append(i)
+    
+    return quick_sort_count(left) + [pivot] + quick_sort_count(right)
+
+
+arr = [5, 3, 8, 1]
+sorted_arr = quick_sort_count(arr)
+
+print("Sorted:", sorted_arr)
+print("Comparisons:", count)
