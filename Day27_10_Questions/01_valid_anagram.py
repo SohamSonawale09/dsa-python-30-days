@@ -1,0 +1,23 @@
+# 1 Valid Anagram 
+
+def isAnagram(s, t):
+    if len(s) != len(t):
+        return False
+    
+    count = {}
+    
+    for ch in s:
+        if ch in count:
+            count[ch] += 1
+        else:
+            count[ch] = 1
+    
+    for ch in t:
+        if ch not in count or count[ch] == 0:
+            return False
+        count[ch] -= 1
+    
+    return True
+
+
+print(isAnagram("anagram", "nagaram"))
